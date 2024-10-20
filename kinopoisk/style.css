@@ -1,0 +1,82 @@
+/* Основные стили для загрузчика */
+.loader {
+  border: 8px solid #f3f3f3; /* Светло-серый фон */
+  border-top: 8px solid #3498db; /* Синий цвет для верхней части */
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite, colorChange 1.5s linear infinite; /* Анимации вращения и изменения цвета */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -25px; /* Половина высоты */
+  margin-left: -25px; /* Половина ширины */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Тень */
+  display: none; /* Скрыто по умолчанию */
+  z-index: 999; /* Чтобы был поверх остальных элементов */
+}
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+@keyframes colorChange {
+  0% { border-top: 8px solid #3498db; } /* Синий */
+  25% { border-top: 8px solid #e74c3c; } /* Красный */
+  50% { border-top: 8px solid #2ecc71; } /* Зеленый */
+  75% { border-top: 8px solid #f1c40f; } /* Желтый */
+  100% { border-top: 8px solid #3498db; } /* Синий */
+}
+/* Остальные стили остаются без изменений */
+.modal-body {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start; /* Выравнивание по верхнему краю */
+}
+#modalMovieImage {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+#modalMovieDescription {
+  white-space: pre-wrap;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-left: 20px; /* Отступ от изображения */
+}
+.modal-lg {
+  max-width: 900px;
+}
+.modal-title {
+  font-weight: bold;
+}
+.card {
+  flex: 1 1 200px;
+  margin: 10px;
+  max-width: 200px;
+}
+.card img {
+  max-height: 300px;
+  object-fit: cover;
+}
+@media (max-width: 768px) {
+  .modal-body {
+      flex-direction: column;
+  }
+  .col-md-4, .col-md-8 {
+      width: 100%;
+  }
+  #modalMovieImage {
+      margin-bottom: 20px;
+  }
+  .search-results {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+  }
+  .card {
+      min-width: 200px;
+      margin-right: 10px;
+  }
+}
